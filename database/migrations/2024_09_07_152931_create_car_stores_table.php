@@ -13,6 +13,16 @@ return new class extends Migration
     {
         Schema::create('car_stores', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('slug')->unique();
+            $table->string('thumbnail');
+            $table->boolean('is_open');
+            $table->boolean('is_full');
+            $table->text('address');
+            $table->string('phone_number');
+            $table->string('cs_name');
+            $table->foreignId('city_id')->constrained()->cascadeOnDelete();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
