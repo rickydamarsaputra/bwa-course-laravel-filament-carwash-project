@@ -17,6 +17,7 @@ class CarService extends Model
     protected $fillable = [
         'name',
         'slug',
+        'icon',
         'price',
         'about',
         'photo',
