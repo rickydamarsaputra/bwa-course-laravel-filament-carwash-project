@@ -16,7 +16,7 @@
   <main
     class="bg-[#FAFAFA] max-w-[640px] mx-auto min-h-screen relative flex flex-col has-[#CTA-nav]:pb-[120px] has-[#Bottom-nav]:pb-[120px]">
     <div id="Top-nav" class="flex items-center justify-between px-4 pt-5 absolute top-0 z-10 w-full">
-      <a href="store-list.html">
+      <a href="{{url()->previous()}}">
         <div class="w-10 h-10 flex shrink-0">
           <img src="{{asset('assets/images/icons/back.svg')}}" alt="icon">
         </div>
@@ -268,7 +268,16 @@
         <p class="font-bold text-xl leading-[30px]">Rp {{number_format($carService->price, 0, ',', '.')}}</p>
         <p class="text-sm leading-[21px] text-[#909DBF]">{{$carService->duration_in_hour}} Hours</p>
       </div>
-      <a href="booking.html" class="rounded-full p-[12px_20px] bg-[#FF8E62] font-bold text-white">Booking Now</a>
+      @if($carStore->is_open)
+      @if($carStore->is_full)
+      <a href="" class="rounded-full p-[12px_20px] bg-[#EEEFF4] font-bold text-[#AAADBF]">Full Booked</a>
+      @else
+      <a href="{{route('front.booking', $carStore->slug)}}"
+        class="rounded-full p-[12px_20px] bg-[#FF8E62] font-bold text-white">Booking Now</a>
+      @endif
+      @else
+      <a href="" class="rounded-full p-[12px_20px] bg-[#EEEFF4] font-bold text-[#AAADBF]">Closed</a>
+      @endif
     </div>
     <!-- About modal -->
     <div id="default-modal" tabindex="-1" aria-hidden="true"

@@ -48,8 +48,8 @@ class CarStoreResource extends Resource
                 Forms\Components\Select::make('is_full')
                     ->required()
                     ->options([
-                        true => 'Avaible',
-                        false => 'Full Booked',
+                        true => 'Full Booked',
+                        false => 'Avaible',
                     ]),
 
                 Forms\Components\Select::make('city_id')
@@ -94,10 +94,10 @@ class CarStoreResource extends Resource
 
                 Tables\Columns\IconColumn::make('is_full')
                     ->boolean()
-                    ->trueColor('success')
-                    ->falseColor('danger')
-                    ->trueIcon('heroicon-o-check-circle')
-                    ->falseIcon('heroicon-o-x-circle')
+                    ->trueColor('danger')
+                    ->falseColor('success')
+                    ->trueIcon('heroicon-o-x-circle')
+                    ->falseIcon('heroicon-o-check-circle')
                     ->label('Tersedia?'),
 
                 Tables\Columns\ImageColumn::make('thumbnail'),
