@@ -62,7 +62,7 @@
       </div>
     </div>
     <div class="flex h-full flex-1 mt-5">
-      <form action="{{route('front.booking.store', [$carStore->slug, $service->slug])}}"
+      <form action="{{route('front.booking.store', [$carStore->slug, $service->slug])}}" method="POST"
         class="w-full flex flex-col rounded-t-[30px] p-5 pt-[30px] gap-[26px] bg-white overflow-x-hidden mb-0 mt-auto">
         @csrf
         <div class="flex flex-col gap-2">
