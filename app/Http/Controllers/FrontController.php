@@ -132,4 +132,32 @@ class FrontController extends Controller
     {
         return view('front.success_booking', compact('bookingTransaction'));
     }
+
+    public function transactions()
+    {
+        return view('front.transactions');
+    }
+
+    public function transaction_details(Request $request)
+    {
+        $request->validate([
+            'trx_id' => ['required', 'string', 'max:255'],
+            'phone_number' => ['required', 'string', 'max:255'],
+        ]);
+
+        $trx_id = $request->input('trx_id');
+        $phone_number = $request->input('phone_number');
+
+        $details = BookingTransaction::with(['service_details', 'store_details'])->where('trx_id', $trx_id)->where('phone_number', $phone_number)->first();
+
+        if (!$details) {
+            return redirect()->back()->withErrors(['error' => 'Transactions not found.']);
+        }
+
+        $ppn = 0.11;
+        $totalPpn = $details->service_details->price * $ppn;
+        $bookingFee = 25000;
+
+        return view('front.transactions_details', compact('details', 'totalPpn', 'bookingFee'));
+    }
 }
