@@ -9,3 +9,5 @@ Kita akan menggunakan filament php untuk membangun dashboard admin sehingga pros
 Seluruh data pada projek ini akan tersimpan pada database server local kita oleh karena itu pada kelas ini kita akan menggunakan mysql dan menerapkan relasi antar table dalam memberikan experience terbaik kepada pengguna website.
 
 link kelas: https://buildwithangga.com/kelas/laravel-11-filament-mysql-bikin-web-booking-car-wash
+
+link sertifikat: https://drive.google.com/file/d/1sjIbjjVQYb4kyMVZW7MPR2neoFTQXc49/view?usp=sharing
